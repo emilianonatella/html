@@ -1,0 +1,535 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title></title>
+        
+        <meta name="robots" content="noindex" />
+        
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "light" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div id="sidebar-scrollbox" class="sidebar-scrollbox">
+                <ol class="chapter"><li class="expanded affix "><a href="index.html">Introduzione</a></li><li class="expanded "><a href="form-html.html"><strong aria-hidden="true">1.</strong> Form o moduli HTML</a></li><li><ol class="section"><li class="expanded "><a href="tag-form.html"><strong aria-hidden="true">1.1.</strong> Il tag form</a></li><li class="expanded "><a href="attributi-tag-form.html"><strong aria-hidden="true">1.2.</strong> Attributi del tag form</a></li><li class="expanded "><a href="tag-per-creare-form.html"><strong aria-hidden="true">1.3.</strong> Tag per creare form html</a></li><li class="expanded "><a href="tag-input.html"><strong aria-hidden="true">1.4.</strong> Tag input</a></li><li class="expanded "><a href="tag-textarea.html"><strong aria-hidden="true">1.5.</strong> Tag textarea</a></li><li class="expanded "><a href="tag-select-option.html"><strong aria-hidden="true">1.6.</strong> Tag select e option</a></li><li class="expanded "><a href="label.html"><strong aria-hidden="true">1.7.</strong> Label</a></li><li class="expanded "><a href="esercizio-form.html"><strong aria-hidden="true">1.8.</strong> Esercizio di verifica</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar" class="menu-bar">
+                    <div id="menu-bar-sticky-container">
+                        <div class="left-buttons">
+                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                                <i class="fa fa-bars"></i>
+                            </button>
+                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                                <i class="fa fa-paint-brush"></i>
+                            </button>
+                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                                <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            </ul>
+                            
+                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                                <i class="fa fa-search"></i>
+                            </button>
+                            
+                        </div>
+
+                        <h1 class="menu-title"></h1>
+
+                        <div class="right-buttons">
+                            <a href="print.html" title="Print this book" aria-label="Print this book">
+                                <i id="print-button" class="fa fa-print"></i>
+                            </a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#introduzione-html-e-css" id="introduzione-html-e-css">Introduzione HTML e CSS</a></h1>
+<h3><a class="header" href="#classe-3e---as-2019-20" id="classe-3e---as-2019-20">Classe 3E - a.s. 2019-20</a></h3>
+<p>Continuazione dell'unità didattica su HTML e CSS</p>
+<p>Con il corso “Introduzione a HTML e CSS” si intende offrire una veloce ma esaustiva panoramica circa la struttura e l’aspetto delle pagine web con cui ogni programmatore web dovrà interagire.</p>
+<p>Non importa infatti se ciò che si vuole imparare è creare siti web, piuttosto applicazioni web in php o con altre tecnologie client o server che siano: il linguaggio HTML è una componente che accomuna tutti, programmatori web e web designer e una conoscenza dello stesso non potrà che tornare utile a tutti. </p>
+<p>In questo corso scoprirai come sono fatte le pagine web, qual è la loro struttura e quali sono i principali strumenti che questo mette a disposizione. A seguire, imparerai a separare struttura e aspetto delle pagine, grazie alla panoramica sui CSS offerta da questo corso introduttivo.</p>
+<h1><a class="header" href="#form-html" id="form-html">Form html</a></h1>
+<p>Oggi vedremo come creare un semplice <strong>form in html,</strong> ovvero un modulo che consente all’utente di inviare dei dati. </p>
+<p>Per intenderci un form in html è qualcosa del tipo:</p>
+<p><img src="immagini/form_html.jpg" alt="Blank documemnt" /></p>
+<p>L'<strong>HTML</strong> mette a disposizione una serie di interessantissimi tag il cui scopo è quello di creare **moduli ** con tanto di <strong>caselle di testo</strong>, <strong>opzioni</strong>, <strong>bottoni di invio</strong> ed altro ancora.</p>
+<p>Il termine tecnico che riassume tutti questi elementi è <strong>form</strong> ed il loro scopo è quello di creare interazione e scambio dati tra gli utenti ed il sito. Più precisamente, attraverso un <strong>form HTML</strong> (o modulo che dir si voglia) è possibile &quot;raccogliere&quot; gli input degli utenti per poi inviarli ad un qualche sistema di elaborazione (normalmente uno script lato server).</p>
+<p>I <strong>form HTML</strong>, infatti, permettono la realizzazione dell'interfaccia del modulo ma da soli non offrono il minimo controllo e la minima gestione sui dati inseriti dagli utenti. Per far ciò, come detto, sarà necessario utilizzare degli script in grado di ricevere i dati raccolti dal form per poi eseguirne una qualche elaborazione (ad esempio inserirli all'interno di un database oppure utilizzarli per inviare una mail).</p>
+<p>Vediamo ora di capire come si creano form completi, quali tag ed elementi in generale sono coinvolti e quali sono le loro specifiche caratteristiche.</p>
+<hr />
+<p>Alla fine della lettura dovrete realizzare la pagina <code>form.html</code> da caricare sulla piattaforma weschool.com che si aggiunge alle altre pagine fin'ora realizzate in laboratorio:</p>
+<ul>
+<li>testi.html</li>
+<li>Immagini.html</li>
+<li>tabelle.html</li>
+<li>link.html</li>
+<li>css.html</li>
+</ul>
+<h1><a class="header" href="#il-tag-form" id="il-tag-form">Il tag <strong><code>&lt;form&gt;</code></strong></a></h1>
+<p>Per la creazione di un form utilizziamo l'omonimo tag <strong>form</strong>, come nell'esempio che segue:</p>
+<pre><code class="language-html editable">&lt;form method=&quot;&quot; action=&quot;&quot; target=&quot;&quot;&gt;
+...
+&lt;/form&gt;
+</code></pre>
+<p>Scopo di questo tag è di fare da <strong>contenitore</strong> ad una serie di tag (che vedremo tra poco) che costituiranno gli specifici controlli del modulo.</p>
+<p>I principali attributi del <strong>tag form</strong>, come visto nell'esempio, sono i seguenti:</p>
+<ul>
+<li><strong>method</strong> - specifica il metodo di invio dei dati ed accetta i valori <strong>get</strong> o <strong>post</strong>;</li>
+<li><strong>action</strong> - specifica lo script che riceverà, controllerà ed elaborerà i dati.</li>
+<li><strong>target</strong> - specifica se il frutto dell'elaborazione (effettuata dallo script indicato in <em>action</em>) verrà mostrata nella stessa finestra oppure in un altra.</li>
+</ul>
+<h1><a class="header" href="#attributi-del-tag-form" id="attributi-del-tag-form">Attributi del tag <code>&lt;form&gt;</code></a></h1>
+<p>I principali attributi del <strong>tag form</strong>, come visto nell'esempio, sono i seguenti:</p>
+<ul>
+<li>
+<p><strong>method</strong> - specifica il metodo di invio dei dati ed accetta i valori <strong>get</strong> o <strong>post</strong>;</p>
+</li>
+<li>
+<p><strong>action</strong> - specifica lo script che riceverà, controllerà ed elaborerà i dati.</p>
+</li>
+<li>
+<p><strong>target</strong> - specifica se il frutto dell'elaborazione (effettuata dallo script indicato in <em>action</em>) verrà mostrata nella stessa finestra oppure in un altra.</p>
+</li>
+</ul>
+<hr />
+<h4><a class="header" href="#attributo-action-del-tag-form" id="attributo-action-del-tag-form">Attributo <code>action</code> del tag form</a></h4>
+<p>L’attributo <strong>action</strong> serve a specificare l’azione che il browser deve effettuare quando il form viene &quot;eseguito&quot;, ovvero quando si fa clic sul pulsante invia.</p>
+<p>L’attributo action può avere come valore:</p>
+<ul>
+<li>
+<p>un <strong>URL</strong> </p>
+</li>
+<li>
+<p>un <strong>indirizzo mail</strong> </p>
+<p>Può anche essere non specificato e lasciato vuoto, significa che di default imposta come URL la pagina stessa</p>
+</li>
+</ul>
+<p>Per intenderci l’<strong>URL</strong> (Universal Resource Locator) è una stringa di caratteri che identifica in maniera univoca una pagina all’interno della rete. </p>
+<p>Ad esempio, un URL può avere una forma del tipo:</p>
+<p>https://www.w3schools.com/html/html_forms.asp</p>
+<p>Dove <strong>https</strong> è il <strong>protocollo</strong>, in questo caso è https ma potrebbe anche essere diverso;</p>
+<p><strong>www.w3schools.com</strong> convenzionalmente è il nome di <strong>dominio</strong>, più precisamente definito Authority.</p>
+<p><strong>/html/</strong> è il path ovvero il cammino per raggiungere la pagina.</p>
+<pre><code class="language-html">&lt;form action=”URL_personalizzata“&gt;…&lt;/form&gt; 
+</code></pre>
+<p>Oppure si può indicare un indirizzo mail usando <strong>mailto,</strong> come da esempio:</p>
+<pre><code class="language-html">&lt;form action=&quot;mailto:nomecognome@gmail.com&quot;&gt;  
+</code></pre>
+<hr />
+<h4><a class="header" href="#attributo-method-del-tag-form-in-html" id="attributo-method-del-tag-form-in-html">Attributo <code>method</code> del tag form in html</a></h4>
+<p>L’attributo <strong>method</strong> determina il modo in cui i dati vengono mandati al server e può assumere due valori:</p>
+<p><strong>get</strong> – valore di default che passa i parametri che saranno visibili in alto nell’url della barra degli indirizzi.</p>
+<p><strong>post</strong> – invia i dati in modo che non possono essere tracciati nella barra degli indirizzi del browser.</p>
+<p>Quindi ad esempio volendo scegliere il metodo post dovrei specificare come di seguito:</p>
+<pre><code class="language-html">&lt;form action=”URL_personalizzata” method=”post”&gt;…&lt;/form&gt; 
+</code></pre>
+<hr />
+<h4><a class="header" href="#attributo-name-del-tag-form-in-html" id="attributo-name-del-tag-form-in-html">Attributo <code>name</code> del tag form in html</a></h4>
+<p>L’attributo <strong>name</strong> è il nome che si vuole assegnare al form, ad esempio:</p>
+<pre><code class="language-html">&lt;form name=”invio_dati” action=”URL_personalizzata” method=”post”&gt;…&lt;/form&gt;
+</code></pre>
+<hr />
+<h4><a class="header" href="#attributo-enctype-del-tag-form-html" id="attributo-enctype-del-tag-form-html">Attributo <code>enctype</code> del tag form html</a></h4>
+<p>L’attributo <strong>enctype</strong> indica il tipo di codifica da utilizzare. </p>
+<p>Questo attributo di default è impostato su questo valore: “application/x-www-form-urlencoded”, che sta ad indicare che tutti i caratteri vengono codificati e i caratteri speciali vengono convertiti. Quindi se vogliamo trasmettere solo dati questo attributo può essere omesso.</p>
+<p>Nel momento in cui invece dobbiamo trasmettere un file, come ad esempio un’<strong>immagine</strong> allora dobbiamo modificarlo nel valore: “<strong>multipart/form-data</strong>“.</p>
+<pre><code class="language-html">&lt;form method=&quot;URL_personalizzata&quot; method=&quot;post&quot; enctype=&quot;multipart/form-data&quot;&gt;
+...
+&lt;/form&gt; 
+</code></pre>
+<p>C’è anche un altro valore da poter inserire: “text/plain”, il quale indica che i caratteri non devono essere codificati ma è usato molto più raramente.</p>
+<h1><a class="header" href="#tag-per-creare-form-html" id="tag-per-creare-form-html">Tag per creare form html</a></h1>
+<p>Una volta definito un form mediante l'omonimo tag sarà necessario &quot;popolarlo&quot; con una serie di tag annidiati al suo interno. Attraverso i singoli tag (che andremo a vedere tra poco), infatti, sarà possibile creare i vari elementi per l'interazione con l'utente come, ad esempio, caselle di testo o menu di selezione.</p>
+<p>Passiamo adesso in rassegna i singoli tag che generano gli elementi dei form HTML:</p>
+<ul>
+<li><strong><code>input</code></strong> - genera la maggior parte degli elementi dei form HTML, a seconda del type specificato. Gli input più utilizzati sono:
+<ul>
+<li><strong><code>text</code></strong> - è utilizzato per creare <em>caselle di testo</em> in cui l'utente può scrivere del contenuto su &quot;singola linea&quot;;</li>
+<li><strong><code>file</code></strong> - è utilizzato per creare <em>caselle di selezione di file in locale</em> al fine di poterli trasmettere al server remoto;</li>
+<li><strong><code>radio</code></strong> - permette di creare un gruppo di opzioni al cui interno deve essere fatta una scelta (non ammette scelte multiple);</li>
+<li><strong><code>checkbox</code></strong> - permette di creare un gruppo di opzioni al cui interno devono essere fatta delle scelte (ammette scelte multiple);</li>
+<li><strong><code>button</code></strong> - permette di creare bottoni &quot;neutri&quot; ai quali, cioè, può essere associata un'azione mediante Javascript;</li>
+<li><strong><code>submit</code></strong> - permette di creare bottoni di invio attraverso i quali viene, appunto inviato e processato il form;</li>
+<li><strong><code>image</code></strong> - permette di inserire immagini &quot;attive&quot; all'interno del modulo che fungeranno da bottoni;</li>
+<li><strong><code>reset</code></strong> - permette di creare bottoni per il reset del form (in sostanza vengono cancellate le scelte effettuate dall'utente ed il modulo torna al suo stato iniziale).</li>
+</ul>
+</li>
+<li><strong><code>select</code></strong> - crea una casella di riepilogo a scorrimento, chiamata in gergo <strong>selectbox</strong>;</li>
+<li><strong><code>textarea</code></strong> - genera un'area di testo in cui è possibile andare a capo e viene utilizzata per permettere di inserire descrizioni, commenti o comunque testi piuttosto lunghi.</li>
+</ul>
+<h1><a class="header" href="#tag-input-per-i-form-in-html" id="tag-input-per-i-form-in-html">Tag <strong><code>&lt;input&gt;</code></strong> per i form in html</a></h1>
+<p>Continuiamo a costruire il nostro form html utilizzando il tag <strong><code>&lt;input&gt;</code></strong> si inserisce sotto il tag <strong><code>&lt;form&gt;</code></strong> prima della sua chiusura <strong><code>&lt;/form&gt;</code></strong>.</p>
+<p>Il tag <code>&lt;input&gt;</code> non ha il tag di chiusura e permette l’inserimento da parte dell’utente di un determinato valore.</p>
+<p>Viene utilizzato con vari attributi, tra cui <strong><code>type</code></strong>, <strong><code>name</code>,</strong> <strong><code>value</code>,</strong> e <strong><code>placeholder</code></strong>.</p>
+<h4><a class="header" href="#attributo-name" id="attributo-name">Attributo name</a></h4>
+<p>L’attributo name serve a specificare il nome del campo e in genere si scrive un nome identificativo per quel tipo di dato. È un dato importante perché in questo modo si identificano i dati da inviare.</p>
+<p>Ecco alcuni esempi:</p>
+<pre><code class="language-html">&lt;input name=”cognome”&gt;
+
+&lt;input name=”mail”&gt;
+
+&lt;input name=”invia”&gt; 
+</code></pre>
+<h4><a class="header" href="#attributo-placeholder" id="attributo-placeholder">Attributo placeholder</a></h4>
+<p>L’attributo <strong>palceholder</strong> è stato introdotto con l’HTML5 ed è molto utile, infatti consente di visualizzare un suggerimento all’interno del campo da compilare.</p>
+<p>Ad esempio inserendo semplicemente questo codice:</p>
+<pre><code class="language-html">&lt;form name=&quot;invio_dati&quot; action=&quot;URL_personalizzata&quot; method=&quot;post&quot;&gt;
+&lt;p&gt;&lt;input name=&quot;nome&quot; placeholder=&quot;Nome&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;input name=&quot;mail&quot; placeholder=&quot;Email&quot;&gt;&lt;/p&gt;
+&lt;/form&gt;
+</code></pre>
+<p>Visualizzo i campi del form html come in figura sotto:</p>
+<p><img src="https://www.codingcreativo.it/wp-content/uploads/2019/03/placeholder-1.jpg" alt="placeholder" /></p>
+<h4><a class="header" href="#attributo-type" id="attributo-type">Attributo type</a></h4>
+<p>L’attributo <strong><code>type</code></strong> può assumere diversi valori:</p>
+<p><strong><code>text</code></strong> – di default, se omesso infatti il campo input è una casella di testo semplice;</p>
+<p><strong><code>submit</code></strong> – indica un pulsante (ad esempio può essere utilizzato per il tasto invia);</p>
+<p><strong><code>button</code></strong> – indica un semplice bottone da inserire nel form e su di esso è possibile attivare ad esempio alcuni eventi come onClick;</p>
+<p><strong><code>checkbox</code></strong> – è utilizzato per selezionare più caselle contemporaneamente in un elenco di voci accanto a dei piccoli riquadri;</p>
+<p><strong><code>radio</code></strong> – è indicato per effettuare una scelta da un elenco di voci indicate da caselle che sono dei piccoli cerchi. L’eventuale elemento preselezionato si indica con checked. Tutti gli elementi devono avere lo stesso valore per l’attributo name;</p>
+<p><strong><code>reset</code></strong> – il pulsante reset serve a svuotare il form;</p>
+<p><strong><code>image</code></strong> – permette ad esempio di impostare un’immagine per un pulsante di invio;</p>
+<p><strong><code>hidden</code></strong> – viene utilizzato per i campi nascosti.</p>
+<p>Inoltra con l'HTML5 per l'attributo <strong>type</strong> si sono aggiunti i seguenti valori:</p>
+<ul>
+<li>tel</li>
+<li>search</li>
+<li>url</li>
+<li>email</li>
+<li>datetime</li>
+<li>date</li>
+<li>month</li>
+<li>week</li>
+<li>time</li>
+<li>datetime-local</li>
+<li>number</li>
+<li>range</li>
+<li>color</li>
+</ul>
+<p>Vediamo alcuni esempi di form html:</p>
+<p><em>Primo esempio che include i radio button:</em></p>
+<pre><code class="language-html">&lt;form name=&quot;invio_dati&quot; action=&quot;URL_personalizzata&quot; method=&quot;post&quot;&gt;
+&lt;p&gt;&lt;input name=&quot;nome&quot; placeholder=&quot;Nome&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;input name=&quot;mail&quot; placeholder=&quot;Email&quot;&gt;&lt;/p&gt;
+&lt;p&gt;
+&lt;input name=&quot;sesso&quot; type=&quot;radio&quot; value=&quot;maschio&quot; checked&gt; maschio
+&lt;input name=&quot;sesso&quot; type=&quot;radio&quot; value=&quot;femmina&quot;&gt; femmina
+&lt;/p&gt;
+&lt;p&gt;
+&lt;input name=&quot;invia&quot; type=&quot;submit&quot;&gt;&lt;/p&gt;
+&lt;/form&gt;
+</code></pre>
+<p><img src="https://www.codingcreativo.it/wp-content/uploads/2019/03/radio_button_html.jpg" alt="Esempio con i radio button" /></p>
+<p><em>Secondo esempio con i checkbox:</em></p>
+<pre><code class="language-html">&lt;form name=&quot;invio_dati&quot; action=&quot;URL_personalizzata&quot; method=&quot;post&quot;&gt;
+&lt;p&gt;&lt;input name=&quot;nome&quot; placeholder=&quot;Nome&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;input name=&quot;mail&quot; placeholder=&quot;Email&quot;&gt;&lt;/p&gt;
+&lt;p&gt;
+&lt;input name=&quot;c1&quot; type=&quot;checkbox&quot; value=&quot;tecnologia&quot;&gt; tecnologia
+&lt;input name=&quot;c2&quot; type=&quot;checkbox&quot; value=&quot;computer&quot;&gt; computer	
+&lt;input name=&quot;c3&quot; type=&quot;checkbox&quot; value=&quot;reti&quot;&gt; reti	
+&lt;/p&gt;
+&lt;p&gt;
+&lt;input name=&quot;sesso&quot; type=&quot;radio&quot; value=&quot;maschio&quot;&gt; maschio
+&lt;input name=&quot;sesso&quot; type=&quot;radio&quot; value=&quot;femmina&quot;&gt; femmina
+&lt;/p&gt;
+&lt;p&gt;
+&lt;input name=&quot;invia&quot; type=&quot;submit&quot;&gt;&lt;/p&gt;
+&lt;/form&gt;
+</code></pre>
+<p><img src="https://www.codingcreativo.it/wp-content/uploads/2019/03/checkbox.jpg" alt="checkbox" /></p>
+<p><em>Terzo esempio con il tasto reset:</em></p>
+<pre><code class="language-html">&lt;form name=&quot;invio_dati&quot; action=&quot;URL_personalizzata&quot; method=&quot;post&quot;&gt;
+&lt;p&gt;&lt;input name=&quot;nome&quot; placeholder=&quot;Nome&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;input name=&quot;mail&quot; placeholder=&quot;Email&quot;&gt;&lt;/p&gt;
+&lt;p&gt;
+&lt;input name=&quot;c1&quot; type=&quot;checkbox&quot; value=&quot;tecnologia&quot;&gt; tecnologia
+&lt;input name=&quot;c2&quot; type=&quot;checkbox&quot; value=&quot;computer&quot;&gt; computer	
+&lt;input name=&quot;c3&quot; type=&quot;checkbox&quot; value=&quot;reti&quot;&gt; reti	
+&lt;/p&gt;
+&lt;p&gt;
+&lt;input name=&quot;sesso&quot; type=&quot;radio&quot; value=&quot;maschio&quot;&gt; maschio
+&lt;input name=&quot;sesso&quot; type=&quot;radio&quot; value=&quot;femmina&quot;&gt; femmina
+&lt;/p&gt;
+&lt;p&gt;
+&lt;input name=&quot;invia&quot; type=&quot;submit&quot;&gt;&lt;/p&gt;
+&lt;/form&gt;
+</code></pre>
+<p><img src="https://www.codingcreativo.it/wp-content/uploads/2019/03/resetta.jpg" alt="reset html" /></p>
+<p><em>Quarto esempio con i button:</em></p>
+<pre><code class="language-html">&lt;form name=&quot;invio_dati&quot; action=&quot;URL_personalizzata&quot; method=&quot;post&quot;&gt;
+&lt;p&gt;&lt;input name=&quot;nome&quot; placeholder=&quot;Nome&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;input name=&quot;mail&quot; placeholder=&quot;Email&quot;&gt;&lt;/p&gt;
+&lt;p&gt;
+&lt;input name=&quot;c1&quot; type=&quot;checkbox&quot; value=&quot;tecnologia&quot;&gt; tecnologia
+&lt;input name=&quot;c2&quot; type=&quot;checkbox&quot; value=&quot;computer&quot;&gt; computer	
+&lt;input name=&quot;c3&quot; type=&quot;checkbox&quot; value=&quot;reti&quot;&gt; reti	
+&lt;/p&gt;
+&lt;p&gt;
+&lt;input name=&quot;sesso&quot; type=&quot;radio&quot; value=&quot;maschio&quot;&gt; maschio
+&lt;input name=&quot;sesso&quot; type=&quot;radio&quot; value=&quot;femmina&quot;&gt; femmina
+&lt;/p&gt;
+&lt;p&gt;
+&lt;input type=&quot;button&quot; value=&quot;saluto&quot; onClick=&quot;alert('Ciao da Coding Creativo');&quot; /&gt;
+&lt;/p&gt;
+&lt;/form&gt;
+</code></pre>
+<p><img src="https://www.codingcreativo.it/wp-content/uploads/2019/03/button_html.jpg" alt="button in html" /></p>
+<p>Il campo <strong>hidden</strong> è un campo non visibile necessario quando occorre memorizzare dei dati per poi inviarli, ma al tempo stesso non devono essere visibili nella pagina web.</p>
+<pre><code class="language-html">&lt;p&gt;&lt;input name=&quot;pw&quot; type=&quot;hidden&quot;&gt;&lt;/p&gt;
+</code></pre>
+<h1><a class="header" href="#tag-textarea" id="tag-textarea">Tag <strong><code>&lt;textarea&gt;</code></strong></a></h1>
+<p>Continuaimo a costruire il form in html utilizzando il tag <strong>textarea</strong> che permette di creare un’area nella quale inserire del testo, specificando l’attributo <strong>name</strong>, il numero di righe con l’attributo <strong>rows</strong> e il numero di colonne con l’attributo <strong>cols</strong>. In pratica rows e cols non sono altro che la larghezza e l’altezza di una textarea.</p>
+<p>Un esempio di form in html:</p>
+<pre><code class="language-html">&lt;form name=&quot;invio_dati&quot; action=&quot;URL_personalizzata&quot; method=&quot;post&quot;&gt;
+&lt;p&gt;&lt;input name=&quot;nome&quot; placeholder=&quot;Nome&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;input name=&quot;mail&quot; placeholder=&quot;Email&quot;&gt;&lt;/p&gt;
+&lt;p&gt;
+&lt;input name=&quot;c1&quot; type=&quot;checkbox&quot; value=&quot;tecnologia&quot;&gt; tecnologia
+&lt;input name=&quot;c2&quot; type=&quot;checkbox&quot; value=&quot;computer&quot;&gt; computer	
+&lt;input name=&quot;c3&quot; type=&quot;checkbox&quot; value=&quot;reti&quot;&gt; reti	
+&lt;/p&gt;
+&lt;p&gt;
+&lt;input name=&quot;sesso&quot; type=&quot;radio&quot; value=&quot;maschio&quot;&gt; maschio
+&lt;input name=&quot;sesso&quot; type=&quot;radio&quot; value=&quot;femmina&quot;&gt; femmina
+&lt;/p&gt;
+&lt;p&gt;
+&lt;textarea name=&quot;messaggio&quot; rows=&quot;5&quot; cols=&quot;50&quot; placeholder=&quot;inserisci un messaggio&quot;&gt;&lt;/textarea&gt;&lt;/p&gt;
+&lt;p&gt;
+&lt;input name=&quot;invia&quot; type=&quot;submit&quot;&gt;
+&lt;/p&gt;
+&lt;/form&gt;
+</code></pre>
+<p><img src="https://www.codingcreativo.it/wp-content/uploads/2019/03/textarea_html-1.jpg" alt="textarea in html" /></p>
+<h1><a class="header" href="#tag-select-e-option" id="tag-select-e-option">Tag <strong><code>&lt;select&gt;</code></strong> e <strong><code>&lt;option&gt;</code></strong></a></h1>
+<p>Il tag <strong><code>select</code></strong> si inserisce all’interno del form e consente di effettuare una scelta da un elenco di voci specificate dal tag <strong><code>option</code></strong>.</p>
+<h4><a class="header" href="#tag-select" id="tag-select">Tag select</a></h4>
+<p>Il tag <strong>select</strong> in genere ha l’<strong>attributo name</strong>, come da esempio:</p>
+<pre><code class="language-html">&lt;select name=&quot;&quot;&gt; &lt;/select&gt;
+</code></pre>
+<h4><a class="header" href="#tag-option" id="tag-option">Tag option</a></h4>
+<p>Il tag <strong>option</strong> si inserisce all’interno del tag select e ha in genere l’<strong>attributo name</strong> che specifica il nome**,** l’<strong>attributo value</strong> che specifica il valore che deve essere inviato e l’<strong>attributo selected</strong> che specifica la voce preselezionata.</p>
+<pre><code class="language-html">&lt;form name=&quot;invio_dati&quot; action=&quot;URL_personalizzata&quot; method=&quot;post&quot;&gt;
+&lt;p&gt;&lt;input name=&quot;nome&quot; placeholder=&quot;Nome&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;input name=&quot;mail&quot; placeholder=&quot;Email&quot;&gt;&lt;/p&gt;
+&lt;p&gt;
+&lt;input name=&quot;sesso&quot; type=&quot;radio&quot; value=&quot;maschio&quot;&gt; maschio
+&lt;input name=&quot;sesso&quot; type=&quot;radio&quot; value=&quot;femmina&quot;&gt; femmina
+&lt;/p&gt;
+&lt;select name=&quot;regione&quot;&gt; 
+     &lt;option value=&quot;1&quot; selected&gt;Abruzzo&lt;/option&gt;
+     &lt;option value=&quot;2&quot;&gt;Basilicata&lt;/option&gt;
+     &lt;option value=&quot;2&quot;&gt;Calabria&lt;/option&gt;
+     &lt;option value=&quot;3&quot;&gt;Campania&lt;/option&gt;
+     &lt;option value=&quot;4&quot;&gt;Emilia-Romagna&lt;/option&gt;
+     &lt;option value=&quot;5&quot;&gt;Friuli-Venezia Giulia&lt;/option&gt;
+     &lt;option value=&quot;6&quot;&gt;Lazio&lt;/option&gt;
+     &lt;option value=&quot;7&quot;&gt;Liguria&lt;/option&gt;
+     &lt;option value=&quot;8&quot;&gt;Lombardia&lt;/option&gt;
+     &lt;option value=&quot;9&quot;&gt;Marche&lt;/option&gt;
+     &lt;option value=&quot;10&quot;&gt;Molise&lt;/option&gt;
+     &lt;option value=&quot;11&quot;&gt;Piemonte&lt;/option&gt;
+     &lt;option value=&quot;12&quot;&gt;Puglia&lt;/option&gt;
+     &lt;option value=&quot;13&quot;&gt;Sardegna&lt;/option&gt;
+     &lt;option value=&quot;14&quot;&gt;Sicilia&lt;/option&gt;
+     &lt;option value=&quot;15&quot;&gt;Toscana&lt;/option&gt;
+     &lt;option value=&quot;16&quot;&gt;Trentino-Alto Adige&lt;/option&gt;
+     &lt;option value=&quot;17&quot;&gt;Umbria&lt;/option&gt;
+     &lt;option value=&quot;18&quot;&gt;Valle d'Aosta&lt;/option&gt;
+     &lt;option value=&quot;19&quot;&gt;Veneto&lt;/option&gt;
+&lt;/select&gt;
+&lt;p&gt;
+&lt;textarea name=&quot;messaggio&quot; rows=&quot;5&quot; cols=&quot;50&quot; placeholder=&quot;inserisci un messaggio&quot;&gt;&lt;/textarea&gt;&lt;/p&gt;
+&lt;p&gt;
+&lt;input name=&quot;invia&quot; type=&quot;submit&quot;&gt;
+&lt;/p&gt;
+&lt;/form&gt;
+</code></pre>
+<p><img src="https://www.codingcreativo.it/wp-content/uploads/2019/03/select_option.jpg" alt="select option" /></p>
+<h1><a class="header" href="#label" id="label">Label</a></h1>
+<p>I dati da inserire possono essere descritti da un’etichetta rappresentata dal tag <strong>label</strong>. L’attributo che si specifica all’interno è <strong>for</strong> ed ha lo stesso valore dell’attributo name che abbiamo visto sopra per gli altri tag.</p>
+<p>La label è importante perché gli screen reader possono leggerla.</p>
+<p>Vediamo un esempio:</p>
+<pre><code class="language-html">&lt;p&gt;
+&lt;label for=&quot;nome&quot;&gt;Nome &lt;/label&gt; 
+&lt;input name=&quot;nome&quot; placeholder=&quot;Nome&quot;&gt;&lt;/p&gt;
+&lt;p&gt;
+&lt;label for=&quot;nome&quot;&gt;Email &lt;/label&gt; 
+&lt;input name=&quot;mail&quot; placeholder=&quot;Email&quot;&gt;&lt;/p&gt;
+</code></pre>
+<p><img src="https://www.codingcreativo.it/wp-content/uploads/2019/03/label_form.jpg" alt="label form" /></p>
+<p>Questi sono solo degli esempi di form in html, in base alle vostre esigenze potete creare il vostro form personalizzato.</p>
+<h1><a class="header" href="#realizzare-la-pagina-formhtml" id="realizzare-la-pagina-formhtml">Realizzare la pagina <code>form.html</code></a></h1>
+<p>Nella pagina <code>form.html</code> provate a realizzare il seguente modulo contatti.</p>
+<p>Il risultato visivo (al netto di vostre eventuali stilizzazioni CSS) dovrà essere il seguente:</p>
+<p><img src="https://www.mrwebmaster.it/img/upl/guida_html/modulo.jpg" alt="Esempio di modulo in HTML (form)" /></p>
+<p>Caricate la pagina html su <a href="https://www.weschool.com">weschool.com</a></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+        
+        
+        <script type="text/javascript">
+            window.playpen_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+        
+        <script type="text/javascript">
+        window.addEventListener('load', function() {
+            window.setTimeout(window.print, 100);
+        });
+        </script>
+        
+        
+
+    </body>
+</html>
